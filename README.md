@@ -4,6 +4,8 @@
 
 The aim of this project is to create a **load** in an ELT that will have a rest api, then deposit the data in a datalake and finally send a notification to the transfom that a document has been added.
 
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -12,7 +14,7 @@ List all dependencies and their version needed by the project as :
 
 * IDE used pycharm 2024.3 or later [download](https://www.jetbrains.com/pycharm/download/?section=windows)
 * Python 3.13 or later [official doc](https://www.python.org/downloads/)
-* Git version 2.47.1 ou ultérieure [official doc](https://git-scm.com/)
+* Git version 2.47.1 or later [official doc](https://git-scm.com/)
 
 ### Configuration
 
@@ -26,8 +28,11 @@ Copy and modify the .env
 cp .env.example .env
 ````
 
+---
+
 ## Development environment
 
+---
 
 ## Collaborate
 
@@ -47,15 +52,15 @@ cp .env.example .env
 <type>(<scope>): <subject>
 ```
 
-* **build** : changements qui affectent le système de build ou des dépendances externes (npm, make…)
-* **ci** : changements concernant les fichiers et scripts d’intégration ou de configuration (Travis, Ansible, BrowserStack…)
-* **feat** : ajout d’une nouvelle fonctionnalité
-* **fix** : correction d’un bug
-* **perf** : amélioration des performances
-* **refactor** : modification qui n’apporte ni nouvelle fonctionalité ni d’amélioration de performances
-* **style** : changement qui n’apporte aucune alteration fonctionnelle ou sémantique (indentation, mise en forme, ajout d’espace, renommante d’une variable…)
-* **docs** : rédaction ou mise à jour de documentation
-* **test** : ajout ou modification de tests
+- **build**: Changes that affect the build system or external dependencies (e.g., npm, make, etc.).
+- **ci**: Changes related to integration or configuration files and scripts (e.g., Travis, Ansible, BrowserStack, etc.).
+- **feat**: Adding a new feature.
+- **fix**: Bug fixes.
+- **perf**: Performance improvements.
+- **refactor**: Modifications that neither add a new feature nor improve performance.
+- **style**: Changes that do not affect functionality or semantics (e.g., indentation, formatting, adding spaces, renaming a variable, etc.).
+- **docs**: Writing or updating documentation.
+- **test**: Adding or modifying tests.
 
 examples :
 ```bash
@@ -65,8 +70,12 @@ feat(MyClass): add a button in the ...
 feat(example.js): change name into username
 ````
 
+---
+
 ## License
 MIT
+
+---
 
 ## Contact
 
