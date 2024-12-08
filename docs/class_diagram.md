@@ -1,45 +1,53 @@
 ````mermaid
 classDiagram
-    class ICloudService {
-        <<Interface>>
-        - connectionString : string
-        - destinationName : string
-        
-        + connect(connectionString : string, destinationName : string) void
+    class CloudService {
+        <<Interface>>        
+        + connect() void
         + disconect() void
-        + create(destination : string, source : string) void
+        + load(destination : string, source : string) void
     }
     
-    ICloudService <|-- AwsService
-    class AwsService {
+    CloudService <|-- GcpService
+    class GcpService {
         - connectionString : string
         - destinationName : string
 
-        + AwsService(connectionString : string, destinationName : string)
-        + connect(connectionString : string, destinationName : string) void 
+        + GcpService(connectionString : string, destinationName : string)
+        + connect() void 
         + disconect() void
-        + create(destination : string, source : string) void        
+        + load(destination : string, source : string) void        
     }
     
     
-    ICloudService <-- Server 
+    CloudService <-- Server
     class Server {
         - host : string
         - port : int 
         - app : FastApi
-        - service : ICloudService
+        - service : CloudService
 
         Server(host : string, port : int)
-        + start() void
+        + start(service : CloudService) void
+        + stop() void
+        + load(content : any) void
     }
     
-    PermissionDeniedException <-- ICloudService
-    class PermissionDeniedException {
-        PermissionDeniedException()
-        PermissionDeniedException(message : string)
-        PermissionDeniedException(message : string, errorCode : int )
+    DestinationNotFoundException <-- CloudService
+    class DestinationNotFoundException {
+        DestinationNotFoundException()
+    }
+    
+    ObjectAlreadyExistException <-- CloudService
+    class ObjectAlreadyExistException {
+        ObjectAlreadyExistException()
+    }
+    
+    AuthenticationFailedException <-- CloudService
+    class AuthenticationFailedException {
+        AuthenticationFailedException()
     }
 
-    AwsService --() SdkAWS
+    GcpService --() SdkGcp
+    Server --() FastApi
     
 ````
