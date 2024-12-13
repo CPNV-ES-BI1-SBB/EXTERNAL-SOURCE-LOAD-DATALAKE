@@ -15,5 +15,5 @@ class GcpService(CloudService):
     def disconnect(self) -> None:
         pass
 
-    def load(self, destination: str, source: str) -> None:
+    def load(self, source :any) -> None:
         pass
