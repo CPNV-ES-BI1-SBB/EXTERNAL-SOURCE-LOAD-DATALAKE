@@ -51,3 +51,7 @@ Chosen because it is the official library for python.
 
 
 [2] : https://github.com/boto/boto3
+
+
+## Uvicorn
+Uvicorn est un serveur ASGI (Asynchronous Server Gateway Interface) léger et performant, conçu pour exécuter des applications Python modernes comme FastAPI ou Starlette. 
