@@ -1,45 +1,66 @@
 ````mermaid
 classDiagram
-    class ICloudService {
-        <<Interface>>
-        - connectionString : string
-        - destinationName : string
-        
-        + connect(connectionString : string, destinationName : string) void
+    class CloudService {
+        <<Interface>>        
+        + connect() void
         + disconect() void
-        + create(destination : string, source : string) void
+        + load(source : any) void
     }
     
-    ICloudService <|-- AwsService
+    CloudService <|-- GcpService
+    class GcpService {
+        - connectionString : string
+        - destinationName : string
+        - connection : SdkGcp
+
+        + GcpService(connectionString : string, destinationName : string)
+        + connect() void 
+        + disconect() void
+        + load(source : any) void        
+    }
+    
+    CloudService <|-- AwsService
     class AwsService {
         - connectionString : string
         - destinationName : string
+        - access_key : string
+        - secret_key : string
+        - bucket : string
+        - region_name : string
+        - connection : SdkAws
 
-        + AwsService(connectionString : string, destinationName : string)
-        + connect(connectionString : string, destinationName : string) void 
+        + AwsService(access_key : string, secret_key : string, bucket : string, region : string, destination: string)
+        + connect() void 
         + disconect() void
-        + create(destination : string, source : string) void        
+        + load(source : any) void        
     }
     
-    
-    ICloudService <-- Server 
+    CloudService <-- Server
     class Server {
-        - host : string
-        - port : int 
         - app : FastApi
-        - service : ICloudService
+        - service : CloudService
 
-        Server(host : string, port : int)
+        Server(service : CloudService)
         + start() void
+        + stop() void
     }
     
-    PermissionDeniedException <-- ICloudService
-    class PermissionDeniedException {
-        PermissionDeniedException()
-        PermissionDeniedException(message : string)
-        PermissionDeniedException(message : string, errorCode : int )
+    DestinationNotFoundException <-- CloudService
+    class DestinationNotFoundException {
+        DestinationNotFoundException()
+    }
+    
+    ObjectAlreadyExistException <-- CloudService
+    class ObjectAlreadyExistException {
+        ObjectAlreadyExistException()
+    }
+    
+    AuthenticationFailedException <-- CloudService
+    class AuthenticationFailedException {
+        AuthenticationFailedException()
     }
 
-    AwsService --() SdkAWS
+    GcpService --() SdkGcp
+    Server --() FastApi
     
 ````
