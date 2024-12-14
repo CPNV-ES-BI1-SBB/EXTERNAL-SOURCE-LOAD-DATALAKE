@@ -33,6 +33,36 @@ cp .env.example .env
 ## Development environment
 
 ---
+### Start
+
+````shell
+python main.py
+````
+
+
+### Run test
+````shell
+pytest tests/aws/test_connection.py
+````
+````shell
+pytest tests/aws/test_load.py
+````
+
+## Directory structure
+
+````shell
+├───docs                  # Documentations (class, sequence diagram, ...)
+├───tests                 # Tests 
+├───src
+│   ├───cloud_services    # All cloud services (aws, gcp...)
+│   │   └───aws_service
+│   ├───exceptions        # All exceptions 
+│   └───objects           # Objects such as Json
+├───.env
+├───main.py               # Entry point
+└───requirements.md
+````
+
 
 ## Collaborate
 
