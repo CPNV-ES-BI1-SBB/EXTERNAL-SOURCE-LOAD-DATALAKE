@@ -1,4 +1,7 @@
-import string
+from pydantic import json
+
+from src.objects.object import Object
+
 
 class CloudService:
     def connect(self) -> None:
@@ -7,5 +10,5 @@ class CloudService:
     def disconnect(self) -> None:
         pass
 
-    def load(self, destination : string, source : string) -> None:
+    def load(self, source : any) -> None:
         pass
