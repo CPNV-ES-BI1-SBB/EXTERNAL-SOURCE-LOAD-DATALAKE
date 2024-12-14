@@ -29,4 +29,25 @@ And unittest.mock is used to mock services.
 
 [1] : https://blog.jetbrains.com/pycharm/2024/03/pytest-vs-unittest/
 
+## fastapi
+Very popular Python for developing fast, modern web APIs.
+- Simplicity
+- Intuitive 
+- Native asynchronous support
 
+[Official doc](https://fastapi.tiangolo.com/)
+
+
+## google-cloud-storage
+Official library to connect to google cloud storage.
+
+[Official doc](https://cloud.google.com/storage/docs/reference/libraries)
+
+## boto3
+Chosen because it is the official library for python.
+
+> Boto3 is the Amazon Web Services (AWS) Software Development Kit (SDK) for Python, which allows Python developers to write software that makes use of services like Amazon S3 and Amazon EC2. You can find the latest, most up to date, documentation at our doc site, including a list of services that are supported.
+> -- <cite>[Amazon][2]
+
+
+[2] : https://github.com/boto/boto3
